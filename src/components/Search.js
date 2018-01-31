@@ -5,28 +5,29 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: props.input
+      input: ''
     }
+    this.input = null;
   }
 
-  handleSubmit(e){
+  handleLinear(e){
     e.preventDefault();
-    this.setState({input: this.input.value})
+    console.log(this.input.value);
   }
 
   render() {
     return (
       <div><h1>'Hello world'</h1>
-        <form>
-          <input 
-            ref={input => this.input = input}/>
-        </form>
+      <form>
+        <input 
+          ref={input => this.input = input}/>
         <div>
           <Button 
             buttonText='Linear Search' 
-            onClick={(e) => this.handleSubmit(e)}/>
+            onClick={(e) => this.handleLinear(e)}/>
           <Button buttonText='Binary Search' />
         </div>
+      </form>
       </div>
     )
   }
