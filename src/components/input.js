@@ -1,17 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-export class Input extends React.Component{
-    constructor(props) {
-        super(props)
-    }
-
-
-
-    render(){
+export function Result(props){
         return (
-            <form>
-                <input  />
-            </form>
+            <p>{props.result}</p>
         )
-    }
 }
