@@ -9,11 +9,24 @@ class Search extends React.Component {
     }
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    this.setState({input: this.input.value})
+  }
+
   render() {
     return (
       <div><h1>'Hello world'</h1>
-      <Button buttonText='Linear Search' />
-      <Button buttonText='Binary Search' />
+        <form>
+          <input 
+            ref={input => this.input = input}/>
+        </form>
+        <div>
+          <Button 
+            buttonText='Linear Search' 
+            onClick={(e) => this.handleSubmit(e)}/>
+          <Button buttonText='Binary Search' />
+        </div>
       </div>
     )
   }
