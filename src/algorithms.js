@@ -14,31 +14,39 @@ const linearSearch = (arr, input) => {
   return `Item not found and it took ${ticks} ticks`;
 };
 
-console.log(linearSearch(data, 999));
+// console.log(linearSearch(data, 999));
 
-arr = arr.sort();
+let arr = data.sort((a, b) => {
+  return a - b;
+});
+let ticks = 0;
 
-const binarySearch = (arr, input, start, end) => {
 
-  let start = start === undefined ? 0 : start;
-  let end = end === undefined ? array.length : end;
+const binarySearch = (arr, value, start, end) => {
+
+  start = start === undefined ? 0 : start;
+  end = end === undefined ? array.length : end;
 
   if (start > end){
     return -1;
   }
 
   const index = Math.floor((start + end) / 2);
-  const item = array[index];
+  const item = arr[index];
+  ticks++
 
-  console.log(start, end);
+  // console.log(start, end);
   if (item == value) {
+      console.log(ticks);    
       return index;
   }
   else if (item < value) {
-      return binarySearch(array, value, index + 1, end);
+      return binarySearch(arr, value, index + 1, end);
   }
   else if (item > value) {
-      return binarySearch(array, value, start, index - 1);
+      return binarySearch(arr, value, start, index - 1);
   }
 
 }
+
+binarySearch(data, 90, 0, data.length-1)
