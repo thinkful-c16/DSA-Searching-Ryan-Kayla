@@ -31,7 +31,8 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div><h1>'Hello world'</h1>
+      <div><h1>Algorithm Comparison</h1>
+        <h2>Input a number</h2>
         <form>
           <input 
             ref={input => this.input = input}/>

@@ -1,12 +1,12 @@
 export const binarySearch =  (arr, value, start, end) => {
  let ticks = 0;
- let found = null;
- console.log(found)
+ let notFound = null;
  console.log(ticks)
 
  findNum(arr, value, start, end);
 
   function findNum(arr, value, start, end) {
+
     start = start === undefined ? 0 : start;
     end = end === undefined ? arr.length : end;
 
@@ -20,8 +20,7 @@ export const binarySearch =  (arr, value, start, end) => {
 
     // console.log(start, end);
     if (item == value) {
-        console.log('ticks from inside findNum', ticks);
-        let found = index;    
+        // console.log('ticks from inside findNum', ticks);
         return index;
     }
     else if (item < value) {
@@ -32,6 +31,14 @@ export const binarySearch =  (arr, value, start, end) => {
       ticks++
         return findNum(arr, value, start, index - 1);
     }
+    else {
+      notFound = true;
+    }
   }
-  return `Item found and it took ${ticks} ticks`;
+  if (notFound) {
+    return `Not found and it took ${ticks} ticks`
+  } else {
+    return `Item found and it took ${ticks} ticks`;
+
+  }
 }
