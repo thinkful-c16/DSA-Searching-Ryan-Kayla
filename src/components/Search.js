@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './Button';
 import { linearSearch } from './Linear'
 import { Result } from './input'
+import { binarySearch } from './Binary';
 
 class Search extends React.Component {
   constructor(props) {
@@ -23,6 +24,9 @@ class Search extends React.Component {
   handleBST(e){
     e.preventDefault();
     console.log(this.input.value);
+    let result = binarySearch(this.arr, this.input.value)
+    console.log(result);
+    this.setState({result})
   }
 
   render() {
